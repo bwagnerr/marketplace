@@ -14,6 +14,13 @@ class TestDiscounts < Minitest::Test
     assert_instance_of(BulkDiscount, discounts.list.last)
   end
 
+  def test_raises_error_on_missing_discount_info
+    assert_raises(MissingDiscountInformation) do
+      @discount_rules = [{type: :bulk, product: :mug}]
+      discount = Discounts.new(@discount_rules, [])
+    end
+  end
+
   def test_raises_error_on_unrecognized_discount_type
     assert_raises(DiscountTypeNotFound) do
       @discount_rules = [{type: :free_above_threshold}]
