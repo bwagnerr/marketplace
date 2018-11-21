@@ -1,0 +1,9 @@
+---
+-
+  :type: :two_for_one
+  :product: :voucher
+-
+  :type: :bulk
+  :product: :tshirt
+  :bulk_price: 19
+  :bulk_threshold: 3
